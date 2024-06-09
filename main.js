@@ -7,7 +7,11 @@ buttons.forEach((item) => {
             display.innerText = '';
         } else if (item.id == 'backspace') {
             let string = display.innerText.toString();
-            display.innerText = string.substr(0, string.length - 1);            
+            display.innerText = string.substr(0, string.length - 1);
+        } else if (item.id == '%') {
+            let string = display.innerText.toString();
+            if (string.length > 0 && !isNaN(string[string.length - 1]))
+                display.innerText = eval(display.innerText += '/100');
         } else if (display.innerText !='' && item.id == 'equal') {
             display.innerText = eval(display.innerText);
         } else if (display.innerText == '' && item.id == 'equal') {
